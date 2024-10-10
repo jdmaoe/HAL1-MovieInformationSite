@@ -770,9 +770,7 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 .cast_img_adjustment11:nth-of-type(2) {
   animation-delay: 10s;
 }
-/*.cast_img_adjustment11:nth-of-type(3) {
-  animation-delay: 20s;
-*/}
+
 @keyframes change-img-anim {
   0%{ opacity: 0;}
   10%{ opacity: 1;}
