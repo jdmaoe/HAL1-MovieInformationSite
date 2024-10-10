@@ -1,0 +1,1107 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+a{
+  text-decoration: none;
+}
+
+body{
+/*  background-color: black;*/
+/*  background-color: white;*/
+  background-color: #14001A;
+}
+
+ul{
+  list-style: none;
+}
+
+span{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+dl{
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+figure{
+  margin: 0;
+  padding: 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+::selection{
+  background-color: #8b0000;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* index.hmtl */
+.index_fadeIn{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  text-align: center;
+}
+@keyframes fadeInAnime{
+  0% {
+    opacity: 0;
+}
+
+  100% {
+    opacity: 1;
+}
+}
+
+.index_img{
+  width: 80%;
+}
+
+.link{
+  margin: 50px auto 20px auto;
+}
+.link a{
+  color: white;
+  padding: 0;
+  font-size: 2.5rem;
+/*  font-family: 'Alkalami', serif;*/
+  font-family: 'Noto Serif JP', serif;
+}
+
+.footer *{
+  background: black;
+  color: #fff;
+}
+.footer{
+/*  position: absolute;*/
+  bottom: 0;
+  width: 100%;
+}
+.table{
+  font-family: 'Noto Serif JP', serif;
+  width: 100%;
+  height: 80px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.footer .table .td{
+  vertical-align: middle;
+}
+.footer .table address{
+  text-align: center;
+  font-size: 12px;
+}
+.td {
+  display: table-cell;
+}
+.table {
+  display: table;
+}
+#index_footer{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* main.html */
+.hunberger{
+/*  background: #87cc77;*/
+  margin: 0;
+  font-family: arial;
+/*  width: 100vw;*/
+/*  height: 100vh;*/
+  animation: bugfix infinite 1s;
+  -webkit-animation: bugfix infinite 1s;
+}
+
+@keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
+#overlay-button {
+/*  position: absolute;*/
+  position: fixed;
+  right: 2em;
+/*  left: 2em;*/
+  top: 1em;
+  padding: 26px 11px;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+}
+#overlay-button span {
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: white;
+  position: relative;
+  display: block;
+  transition: all .2s ease-in-out;
+}
+#overlay-button span:before {
+  top: -10px;
+  visibility: visible;
+}
+#overlay-button span:after {
+  top: 10px;
+}
+#overlay-button span:before, #overlay-button span:after {
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: white;
+  position: absolute;
+  content: "";
+  transition: all .2s ease-in-out;
+}
+#overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {
+  background: #fff;
+}
+input[type=checkbox] {
+  display: none; 
+}
+input[type=checkbox]:checked ~ #overlay {
+  visibility: visible; 
+}
+input[type=checkbox]:checked ~ #overlay-button:hover span, input[type=checkbox]:checked ~ #overlay-button span {
+  background: transparent;
+}
+input[type=checkbox]:checked ~ #overlay-button span:before {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+input[type=checkbox]:checked ~ #overlay-button span:after {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+#overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  z-index: 2;
+  visibility: hidden;
+  position: fixed;
+}
+.main_backimg{
+  background-image: url(../images/backimg02.jpg);
+/*  background-size: cover;*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.main_transimg{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#overlay.active {
+}
+#overlay ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  list-style-type: none;
+}
+#overlay ul li {
+  padding: 1em;
+}
+#overlay ul li a {
+  color: #fff;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2em;
+}
+#overlay ul li a:hover {
+  color: #A80000!important;
+}
+
+.container {
+  position: relative;
+  padding: 0 0 1345px 0;
+}
+.image {
+  position: absolute;
+  width:950px;
+/*  width:1000px;*/
+  opacity: 0;
+  animation: change-img-anim 30s infinite;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.image:nth-of-type(1) {
+  animation-delay: 0s;
+}
+.image:nth-of-type(2) {
+  animation-delay: 10s;
+}
+.image:nth-of-type(3) {
+  animation-delay: 20s;
+}
+@keyframes change-img-anim {
+  0%{ opacity: 0;}
+  10%{ opacity: 1;}
+  90%{ opacity: 1;}
+  100%{ opacity: 0;}
+}
+
+.footerIn{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 10px 0 0;
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  text-align: center;
+}
+.footer_siteBnr{
+  padding: 0 5px;
+  text-align: center;
+}
+.footer_siteBnr img{
+  width: 380px;
+}
+
+
+.top_staffWrap{
+  margin: 0 auto;
+  padding: 32px 48px 0 48px;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  font-family: 'Alkalami', serif;
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+.top_mainStaffWrap{
+  margin-bottom: 24px;
+}
+.top_mainStaff{
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.top_mainStaff_dt{
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.top_mainStaff_dd{
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.top_staffInWrap{
+
+}
+.top_staffWrap_ttl{
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.top_staffInLists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#top_staffInLists1{
+  max-width: 840px;
+  margin: 0 auto 10px;
+}
+#top_staffInLists2{
+  max-width: 1150px;
+  margin: 0 auto;
+/*  margin: 0 auto 10px;*/
+}
+.top_staffInList{
+  padding: 0 5px;
+  display: flex;
+}
+.top_staffInList_dt{
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+.top_staffInList_dd{
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+.top_staffInList_ddspe{
+  padding-left: 1em;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.footer *{
+  background:#330033;
+  color: #fff;
+}
+.footer{
+/*  position: absolute;*/
+  bottom: 0;
+  width: 100%;
+}
+.table{
+  width: 100%;
+  height: 90px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.footer .table .td{
+  vertical-align: middle;
+}
+.footer .table address{
+  text-align: center;
+  font-size: 12px;
+}
+.td {
+  display: table-cell;
+}
+.table {
+  display: table;
+}
+#main_table{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* story.html */
+.story_body #overlay-button span {
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: #808080;
+  position: relative;
+  display: block;
+  transition: all .2s ease-in-out;
+}
+.story_body #overlay-button span:before, .story_body #overlay-button span:after {
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: #808080;
+  position: absolute;
+  content: "";
+  transition: all .2s ease-in-out;
+}
+.story_body #overlay-button:hover span,.story_body #overlay-button:hover span:before, .story_body #overlay-button:hover span:after {
+  background: #c9c9c9;
+}
+
+.backimg{
+  height: 100%;
+  background-image: url(../images/backimg01.jpg);
+  background-attachment: fixed;
+/*   background-position: 95%;*/
+  background-position: 0%;
+  font-family: 'Noto Serif JP', serif;
+}
+.transimg{
+  background: rgba(255, 255, 255, 0.8);
+}
+.mainwrap{
+  margin: 0 auto 500px auto;
+}
+.introduction{
+  margin: 0 auto;
+  padding: 45px 0 0 0;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  color: black;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+}
+.p1{
+  padding: 0 0 0 8px;
+  animation-name:fadeInAnime;
+  animation-duration:5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+} 
+.p2{
+  padding: 15px 8px 0 0;
+  animation-name:fadeInAnime;
+  animation-duration:5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+.story_titlebox{
+  position: absolute;
+  top: 125%;
+  left: 0;
+  width: 100%;
+  padding-top: 240px;
+  background: no-repeat center;
+  background-image: url(../images/story01.jpg);
+  background-position: 50% 70%;
+}
+.story_titlewrap{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+}
+.story_title{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 66px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .85);
+  font-family: 'Aref Ruqaa Ink', serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.story_title::after{
+  content: "";
+  position: absolute;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: solid 1px rgba(255, 255, 255, .85);
+}
+.story_main{
+  max-width: 906px;
+  margin: 0 auto;
+}
+.story_main_text{
+  font-size: 18.5px;
+  font-weight: 600px;
+  text-align: left;
+  line-height: 2.57;
+  color: #000;
+  letter-spacing: 1.4px;
+  margin: 30px 0 15px 0;
+}
+.story_main_text_last{
+  font-size: 18.5px;
+  font-weight: 600px;
+  text-align: left;
+  line-height: 2.57;
+  color: #000;
+  letter-spacing: 1.4px;
+  margin: 30px 0 0 0;
+  padding: 0 0 485px 0;
+}
+
+.story_footer {
+/*  background: black;*/
+  color: #000;
+}
+.story_footer{
+/*  position: absolute;*/
+  bottom: 0;
+  width: 100%;
+}
+.story_table{
+  width: 100%;
+  height: 70px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.story_footer .story_table .story_td{
+  vertical-align: middle;
+}
+.story_footer .story_table address{
+  text-align: center;
+  font-size: 16px;
+}
+.story_td {
+  display: table-cell;
+}
+.story_table {
+  display: table;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* cast.html */
+.cast_body{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  background-color: #f8f8ff;
+}
+.cast_body #overlay-button span {
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: #808080;
+  position: relative;
+  display: block;
+  transition: all .2s ease-in-out;
+}
+.cast_body #overlay-button span:before, .cast_body #overlay-button span:after {
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: #808080;
+  position: absolute;
+  content: "";
+  transition: all .2s ease-in-out;
+}
+.cast_body #overlay-button:hover span,.cast_body #overlay-button:hover span:before, .cast_body #overlay-button:hover span:after {
+  background: #c9c9c9;
+}
+
+.cast_titlebox{
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  padding-top: 240px;
+  background: no-repeat center;
+  background-image: url(../images/backimg04.jpg);
+  background-position: 50% 80%;
+/*  background-position: 50% 45%;*/
+}
+.cast_titlewrap{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+}
+.cast_title{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 66px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .85);
+  font-family: 'Aref Ruqaa Ink', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.cast_title::after{
+  content: "";
+  position: absolute;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: solid 1px rgba(255, 255, 255, .85);
+}
+
+/* Character&Cast */
+.character_inner{
+  width: 1240px;
+  margin: 0 auto;
+  padding: 0 90px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+}
+.character_itme_container{
+  padding-top: 600px;
+}
+.character_itme_inner{
+  display: flex;
+  justify-content: space-between;
+}
+.character_itme_image{
+  display: block;
+}
+.cast_img_adjustment01{
+  width: 700px;
+  padding: auto 0;
+}
+
+
+
+.cast_img_adjustment11{
+  position: absolute;
+  width: 700px;
+  padding: auto 0;
+  opacity: 0;
+  animation: change-img-anim 30s infinite;
+}
+.cast_img_adjustment11:nth-of-type(1) {
+  animation-delay: 0s;
+}
+.cast_img_adjustment11:nth-of-type(2) {
+  animation-delay: 10s;
+}
+/*.cast_img_adjustment11:nth-of-type(3) {
+  animation-delay: 20s;
+*/}
+@keyframes change-img-anim {
+  0%{ opacity: 0;}
+  10%{ opacity: 1;}
+  90%{ opacity: 1;}
+  100%{ opacity: 0;}
+}
+
+
+
+
+.cast_img_adjustment02{
+  text-align: center;
+  margin: 8px 0 0 0px;
+  width: 50%;
+}
+.character_name_cast{
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  padding: 23px 0 0 12px;
+}
+.character_nameEN_cast{
+  font-size: 11px;
+  padding: 12px 0 0 7px;
+  letter-spacing: 0.3em;
+}
+.character_text{
+  flex-direction: row;
+  align-items: center;
+/*  padding: 2em 0 0 !important;*/
+  padding: 2em 0 0 0;
+}
+.character_namewrap{
+  display: flex;
+}
+.character_surname{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 35px;
+}
+.character_firstname{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 70px;
+}
+.character_namewrap2{
+/*  justify-content: space-between;*/
+  display: flex;
+}
+.character_name{
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  padding: 18px 0 0 10px;
+}
+.character_story{
+  text-align: left;
+  letter-spacing: 0.1rem;
+  line-height: 2;
+  padding: 0 0 0 50px;
+/*  padding: 0 35px 0 0;*/
+}
+
+/* 折本里香 2 &禪院真希 2 */
+.character_itme_container2{
+  padding: 120px 0 0 0;
+}
+.character_surname2{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 38px;
+}
+.character_firstname2{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 77px;
+}
+
+/* 狗巻棘 3 &五条悟 4 */
+.character_firstname3{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 75px;
+}
+.character_story2{
+  text-align: left;
+  letter-spacing: 0.1rem;
+  line-height: 2;
+  padding: 0 0 0 95px;
+}
+.character_firstname4{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 63px;
+}
+
+/* パンダ */
+.character_name3{
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  padding: 0 0 0 10px;
+}
+.character_surname3{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 85px;
+}
+.character_story3{
+  text-align: left;
+  letter-spacing: 0.1rem;
+  line-height: 2;
+  padding: 18px 0 0 115px;
+}
+
+/* 夏油傑 5 */
+.character_surname5{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 48px;
+}
+.character_firstname5{
+  text-align: left;
+  font-size: 1.3rem;
+  padding-left: 75px;
+}
+
+.footer *{
+  background:#14001A;
+  color: #fff;
+}
+.footer{
+/*  position: absolute;*/
+  bottom: 0;
+  width: 100%;
+}
+.table{
+  width: 100%;
+  height: 90px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.footer .table .td{
+  vertical-align: middle;
+}
+.footer .table address{
+  text-align: center;
+  font-size: 12px;
+}
+.td {
+  display: table-cell;
+}
+.table {
+  display: table;
+}
+#cast_table{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  font-family: 'Noto Serif JP', serif;
+}
+.character_inner2{
+  width: 1240px;
+  margin: 0 auto;
+  padding: 0 90px 90px 90px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* staff.html */
+.staff_body{
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+.staff_titlebox{
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  padding-top: 240px;
+  background: no-repeat center;
+  background-image: url(../images/backimg05.jpg);
+  background-position: 50% 30%;
+}
+.staff_titlewrap{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+}
+.staff_title{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 66px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .85);
+  font-family: 'Aref Ruqaa Ink', serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.staff_title::after{
+  content: "";
+  position: absolute;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: solid 1px rgba(255, 255, 255, .85);
+}
+
+.staffwrap{
+  padding: 600px 48px 0 48px;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  font-family: 'Alkalami', serif;
+  animation-name:fadeInAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+.staffInLists{
+/*  display: flex;*/
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.staffInList{
+  padding: 0 5px 25px 0;
+  display: flex;
+  justify-content: center;
+}
+.staffInList_dt{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+.staffInList_dd{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+.staffInList_ddspe{
+  padding-left: 1em;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+.staff_footer{
+  bottom: 0;
+  width: 100%;
+  font-family: 'Alkalami', serif;
+  color: white;
+}
+.staff_table{
+  width: 100%;
+  height: 70px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.staff_footer .staff_table .staff_td{
+  vertical-align: middle;
+}
+.staff_footer .staff_table address{
+  text-align: center;
+  font-size: 12px;
+}
+.staff_td {
+  display: table-cell;
+}
+.staff_table {
+  display: table;
+}
+
+
+.backimg_staff{
+  height: 100%;
+  background-image: url(../images/backimg06.jpg);
+  background-attachment: fixed;
+/*   background-position: 95%;*/
+  background-position: 0%;
+  font-family: 'Noto Serif JP', serif;
+}
+.transimg_staff{
+  background: rgba(0, 0, 0, 0.8);
+}
+
